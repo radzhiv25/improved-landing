@@ -34,7 +34,6 @@ export default function HeroSection() {
             We&apos;re currently available in these cities only.
           </p>
           <div className="relative flex rounded-xl border border-neutral-200 bg-neutral-100/80 p-1.5 transition-shadow duration-200 focus-within:ring-2 focus-within:ring-primary/20">
-            {/* Sliding pill indicator */}
             <div
               className="absolute top-1.5 h-[calc(100%-12px)] w-[calc(50%-6px)] rounded-lg bg-primary shadow-sm transition-[left] duration-300 ease-out"
               style={{
@@ -62,7 +61,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* CTA block - clearly separated */}
         <div className="mb-6 w-full max-w-sm rounded-2xl border border-primary/20 bg-primary/5 px-6 py-6">
           <p className="mb-3 text-sm font-medium text-neutral-700">
             Ready to find your home?

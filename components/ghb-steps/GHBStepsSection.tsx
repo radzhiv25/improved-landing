@@ -114,7 +114,7 @@ export default function GHBStepsSection() {
         </div>
         <Link
           href="#"
-          className="flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold leading-[1.35] text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 xl:text-sm w-full xl:w-auto"
+          className="flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-xs font-semibold leading-[1.35] text-white shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 xl:text-sm w-full xl:w-auto"
         >
           Book An Appointment
         </Link>
