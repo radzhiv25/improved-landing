@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Disable dark mode: dark variant never matches (light theme only) */
+@custom-variant dark (&:not(*));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,13 +21,6 @@
   --font-pacifico: var(--font-pacifico);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -39,6 +35,42 @@ body {
   100% {
     background-position: -200% center;
   }
+}
+
+/* Guided Home Buying card: subtle light border effect on dark background */
+.hero-ghb-card {
+  --card-edge: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 0 1px var(--card-edge),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-ghb-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .hero-headline-shimmer {
