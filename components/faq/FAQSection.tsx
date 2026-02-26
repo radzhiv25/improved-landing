@@ -54,10 +54,9 @@ function FAQAccordionItem({
             {item.question}
           </span>
           <CrossIcon
-            className={`shrink-0 transition-transform duration-200 ${
+            className={`shrink-0 text-[#292D32] transition-transform duration-200 ${
               isOpen ? "rotate-90" : "rotate-45"
             }`}
-            style={{ color: "#292D32" }}
           />
         </button>
       </h3>
