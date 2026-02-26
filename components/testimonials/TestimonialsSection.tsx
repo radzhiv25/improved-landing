@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full border-t border-neutral-200/80 bg-neutral-50/50 px-4 py-14 md:py-18"
+      className="w-full bg-neutral-50/50 px-4 py-14 md:py-18"
     >
       <div className="mx-auto max-w-[75vw] sm:max-w-[75%]">
         <p className="mb-3 text-center text-base font-medium text-primary md:text-lg">
@@ -96,8 +96,8 @@ export default function TestimonialsSection() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto overflow-y-hidden pb-4 scroll-smooth scrollbar-thin"
-            style={{ scrollSnapType: "x mandatory", scrollbarWidth: "thin" }}
+            className="hide-scrollbar flex gap-6 overflow-x-auto overflow-y-hidden pb-4 scroll-smooth"
+            style={{ scrollSnapType: "x mandatory" }}
           >
             {testimonials.map((t) => (
               <div

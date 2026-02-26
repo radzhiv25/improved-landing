@@ -85,7 +85,7 @@ export default function StatsSection() {
   const { ref, inView } = useInView(0.15);
 
   return (
-    <div ref={ref} className="w-full border-t border-neutral-200/80 bg-white px-4 py-12 md:py-16">
+    <div ref={ref} className="w-full bg-white px-4 py-12 md:py-16">
       <p className="mb-10 text-center text-sm text-neutral-500">
         Trusted by 1000+ intelligent homebuyers
       </p>

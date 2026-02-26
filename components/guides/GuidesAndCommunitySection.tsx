@@ -56,12 +56,12 @@ export default function GuidesAndCommunitySection() {
           ))}
         </div>
 
-        {/* Community banner - Hometrust Collective */}
+        {/* Community banner - Hometrust Collective (clear primary CTA, city choice secondary) */}
         <div
           className="mt-14 flex flex-col items-center justify-center gap-4 rounded-xl px-6 py-12 xl:mt-16 xl:gap-5 xl:py-16"
           style={{
             background:
-              "linear-gradient(180deg, #fff 0%, rgba(255, 109, 51, 0.06) 100%)",
+              "linear-gradient(180deg, #fff 0%, rgba(255, 109, 51, 0.08) 40%, rgba(255, 109, 51, 0.22) 100%)",
           }}
         >
           <p className="text-sm font-medium leading-[1.35] text-violet-600">
@@ -71,22 +71,25 @@ export default function GuidesAndCommunitySection() {
             Hometrust Collective
           </h3>
           <p className="max-w-2xl text-center text-sm leading-[1.35] text-[#66677E] xl:text-base">
-            An exclusive community of buyers, owners & experts who help each other stay updated about the market
+            An exclusive community of buyers, owners & experts who help each other stay updated about the market. Get real advice, ask questions, and connect with verified homebuyers in your city.
           </p>
-          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+          <p className="mt-1 text-center text-sm font-medium text-primary-foreground">
+            We have separate communities for each city. Choose yours to join:
+          </p>
+          <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link
               href="#"
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-neutral-800 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               <MapPin className="h-4 w-4" />
-              Join Bangalore
+              Join Bangalore community
             </Link>
             <Link
               href="#"
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-neutral-800 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border-2 border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary/50 hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
             >
-              <MapPin className="h-4 w-4" />
-              Join Mumbai
+              <MapPin className="h-4 w-4 text-primary" />
+              Join Mumbai community
             </Link>
           </div>
         </div>

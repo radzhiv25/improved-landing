@@ -4,27 +4,42 @@ An improved version of the [Propsoch](https://www.propsoch.com/) landing page, b
 
 ## What We Improved and Why
 
-### Hero and above-the-fold
+So far the improvements focus on **the hero section and animations**. The rest of the landing (sections below) already existed and has not been added as part of this redesign.
+
+### Hero (redesigned)
 
 - **Hero section**
   - Clear hierarchy: subline (“STOP WASTING…”) → main headline with shimmer → supporting copy and city selector.
   - **City selection (Issue #1):** Added microcopy (“Select your city”, “We’re currently available in these cities only”) so users understand why they’re choosing a city and what they get.
   - Primary CTA: “Book An Appointment”; secondary: “Already a member? Login.”
+  - **Founder video:** “Hear from our founders” opens a centered dialog (60% viewport) with embedded video.
 - **Stats strip** (“Trusted by 1000+…”) with count-up on scroll for social proof.
 - **Value proposition** (dark section) with “Guided Home Buying” card, six benefit points, and clear CTAs.
 
-### Additional sections (beyond hero)
+### Animations and micro-interactions
+
+- **Motion (Issue #5):** Hero headline shimmer; hover states on cards and buttons (scale, opacity) for clearer feedback.
+- No new full-page sections have been added yet—improvements are hero + animations first.
+
+### Landing page structure (existing sections)
+
+The page already includes these sections (unchanged by the current redesign):
 
 - **Testimonials** – Carousel with auto-advance and count-up in the headline.
 - **Guided Home Buying (GHB) steps** – Horizontal carousel with stages, videos, and prev/next controls.
 - **Comparison** – “What makes us different?” with toggle (Online Portals vs Local brokers) and comparison table.
-- **Insights** – Accordion (e.g. Floor Plan Analysis, Lighting & Ventilation) with video panel and light gray card; gradient CTA banner.
+- **Insights** – Accordion with video panel and light gray card; gradient CTA banner.
 - **Ancillary services** – Six cards (Home Loan, Legal, Tax, etc.) with hover scale and gradient treatment.
 - **CTA banner** – “Experience delightful home buying…” with Dream Home / Happy Family visuals and “Book An Appointment.”
-- **Guides & Community** – Three blog-style cards plus **Hometrust Collective** block with short description and “Join Bangalore” / “Join Mumbai” (Issue #3: context before city CTAs).
-- **FAQ** – Tabs (About the Service, Fees, Why Work With Us, Trust), accordion answers, and “Still have questions?” banner with “Book Free Appointment.”
+- **Guides & Community** – Three blog-style cards plus Hometrust Collective block with a heavier peach/orange gradient; primary CTA “Join Bangalore community,” secondary outline “Join Mumbai community” with hover state.
+- **FAQ** – Tabs, accordion answers, and “Still have questions?” banner with “Book Free Appointment.”
 - **Propsoch overview** – Collapsible “More details about Bangalore & Mumbai Real estate from Propsoch” above the footer.
 - **Footer** – Brand, intro line, links (developers, areas, filters), legal, social icons, and half-blended “Propsoch” watermark.
+
+### Additional sections (possible future additions)
+
+- **Fair price calculator** – A new section could be added to help users estimate a fair price for a property (e.g. input address or project, see a range or score).
+- **Property reviews** – A section where buyers share their review along with an image of the property they bought using Propsoch, for stronger social proof and trust.
 
 ### Responsive design
 
@@ -57,7 +72,7 @@ An improved version of the [Propsoch](https://www.propsoch.com/) landing page, b
 
 ## Propsoch Landing Page Analysis
 
-**[Full analysis document](https://docs.google.com/document/d/1WlflT17DXphQcRQ-Gt2IGxAjZtgHyMTPuv8VTIn2xrU/edit?usp=sharing)** (Google Doc)
+**[Analysis document](https://docs.google.com/document/d/1WlflT17DXphQcRQ-Gt2IGxAjZtgHyMTPuv8VTIn2xrU/edit?usp=sharing)** (Google Doc)
 
 **Lighthouse scores (original site):** Performance 99, Accessibility 77, Best Practices 54, SEO 100.
 
@@ -65,7 +80,7 @@ An improved version of the [Propsoch](https://www.propsoch.com/) landing page, b
 
 1. **Unclear city selection in hero** – Added explanatory microcopy and clearer hierarchy for the city selector.
 2. **Navbar icons lack clear meaning** – Added `aria-label` and tooltips for Search, Saved, Share.
-3. **Conflicting CTAs in community section** – Hometrust Collective has supporting copy and clearer city CTAs.
+3. **Conflicting CTAs in community section** – Hometrust Collective has supporting copy; city CTAs are now primary (Bangalore) and secondary (Mumbai) with a clear hover state.
 4. **Poor text contrast** – Light theme only; darker text colors for body and headings.
 5. **Lack of meaningful animation** – Shimmer on hero headline; hover states on cards and buttons.
 

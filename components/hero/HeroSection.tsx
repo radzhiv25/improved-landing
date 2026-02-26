@@ -1,10 +1,52 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Play, X } from "lucide-react";
+
+/** Replace with your founder message video URL (YouTube, Vimeo, or direct MP4). */
+const FOUNDER_VIDEO_URL = "https://youtu.be/RqBYQJRqUXs";
+
+/** Convert YouTube watch/short URL to embed URL, or return as-is for other URLs. */
+function getEmbedVideoUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    if (u.hostname === "www.youtube.com" && u.searchParams.get("v")) {
+      return `https://www.youtube.com/embed/${u.searchParams.get("v")}?autoplay=1`;
+    }
+    if (u.hostname === "youtu.be") {
+      return `https://www.youtube.com/embed/${u.pathname.slice(1)}?autoplay=1`;
+    }
+    if (u.hostname === "vimeo.com") {
+      const id = u.pathname.replace(/\D/g, "") || u.pathname.split("/").pop();
+      return `https://player.vimeo.com/video/${id}?autoplay=1`;
+    }
+  } catch {
+    // ignore
+  }
+  return url;
+}
 
 export default function HeroSection() {
   const [city, setCity] = useState<"Bangalore" | "Mumbai">("Bangalore");
+  const [videoOpen, setVideoOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  const openVideo = () => setVideoOpen(true);
+  const closeVideo = () => {
+    setVideoOpen(false);
+    dialogRef.current?.close();
+  };
+
+  // Only open the dialog after it's mounted (so it never opens on page load)
+  useEffect(() => {
+    if (videoOpen && dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  }, [videoOpen]);
+
+  const embedUrl = getEmbedVideoUrl(FOUNDER_VIDEO_URL);
+  const isEmbed = embedUrl !== FOUNDER_VIDEO_URL;
 
   return (
     <section
@@ -21,10 +63,72 @@ export default function HeroSection() {
         <h1 className="hero-headline-shimmer mb-5 text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
           Visit curated homes, negotiate smarter & buy intelligently.
         </h1>
-        <p className="mb-10 max-w-lg text-base leading-relaxed text-neutral-600 md:text-lg">
+        <p className="mb-6 max-w-lg text-base leading-relaxed text-neutral-600 md:text-lg">
           Get end-to-end guidance from property wizards who&apos;ve helped intelligent homebuyers
           like you buy 200+ homes in the last year alone.
         </p>
+
+        <button
+          type="button"
+          onClick={openVideo}
+          className="mb-10 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-primary/10 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20">
+            <Play className="h-4 w-4 fill-primary text-primary" />
+          </span>
+          Hear from our founder
+        </button>
+
+        {videoOpen && (
+          <dialog
+            ref={dialogRef}
+            onCancel={closeVideo}
+            onClick={(e) => e.target === dialogRef.current && closeVideo()}
+            className="fixed left-0 top-0 z-50 h-full w-full max-w-none border-0 bg-transparent p-0 shadow-none backdrop:bg-black/50 [&::backdrop]:bg-black/50"
+            style={{ margin: 0 }}
+            aria-modal
+            aria-labelledby="founder-video-title"
+          >
+            <div className="flex min-h-full w-full items-center justify-center p-4">
+              <div className="relative flex max-h-[60vh] w-[60vw] max-w-full flex-col overflow-hidden rounded-xl bg-neutral-900 shadow-xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between gap-2 border-b border-neutral-700 px-4 py-3">
+              <h2 id="founder-video-title" className="text-sm font-semibold text-white">
+                Hear from our founder
+              </h2>
+              <button
+                type="button"
+                onClick={closeVideo}
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-neutral-400 transition-colors hover:bg-neutral-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="min-h-0 flex-1 bg-black">
+              <div className="aspect-video h-full w-full">
+              {isEmbed ? (
+                <iframe
+                  src={videoOpen ? embedUrl : undefined}
+                  title="Founder message"
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <video
+                  src={FOUNDER_VIDEO_URL}
+                  controls
+                  autoPlay
+                  className="h-full w-full"
+                  title="Founder message"
+                />
+              )}
+            </div>
+              </div>
+            </div>
+            </div>
+        </dialog>
+        )}
 
         <div className="mb-10 w-full max-w-sm">
           <label className="mb-1.5 block text-sm font-medium text-neutral-700">
