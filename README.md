@@ -1,4 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Propsoch Landing Page (Improved)
+
+An improved version of the [Propsoch](https://www.propsoch.com/) landing page, built with Next.js, TypeScript, and Tailwind CSS. The redesign is based on a UX/UI analysis of the original site—see **[Propsoch Landing Page Analysis](https://docs.google.com/document/d/1WlflT17DXphQcRQ-Gt2IGxAjZtgHyMTPuv8VTIn2xrU/edit?usp=sharing)** (Google Doc) and the summary below.
+
+## What We Improved and Why
+
+### Hero and above-the-fold
+
+- **Hero section**
+  - Clear hierarchy: subline (“STOP WASTING…”) → main headline with shimmer → supporting copy and city selector.
+  - **City selection (Issue #1):** Added microcopy (“Select your city”, “We’re currently available in these cities only”) so users understand why they’re choosing a city and what they get.
+  - Primary CTA: “Book An Appointment”; secondary: “Already a member? Login.”
+- **Stats strip** (“Trusted by 1000+…”) with count-up on scroll for social proof.
+- **Value proposition** (dark section) with “Guided Home Buying” card, six benefit points, and clear CTAs.
+
+### Additional sections (beyond hero)
+
+- **Testimonials** – Carousel with auto-advance and count-up in the headline.
+- **Guided Home Buying (GHB) steps** – Horizontal carousel with stages, videos, and prev/next controls.
+- **Comparison** – “What makes us different?” with toggle (Online Portals vs Local brokers) and comparison table.
+- **Insights** – Accordion (e.g. Floor Plan Analysis, Lighting & Ventilation) with video panel and light gray card; gradient CTA banner.
+- **Ancillary services** – Six cards (Home Loan, Legal, Tax, etc.) with hover scale and gradient treatment.
+- **CTA banner** – “Experience delightful home buying…” with Dream Home / Happy Family visuals and “Book An Appointment.”
+- **Guides & Community** – Three blog-style cards plus **Hometrust Collective** block with short description and “Join Bangalore” / “Join Mumbai” (Issue #3: context before city CTAs).
+- **FAQ** – Tabs (About the Service, Fees, Why Work With Us, Trust), accordion answers, and “Still have questions?” banner with “Book Free Appointment.”
+- **Propsoch overview** – Collapsible “More details about Bangalore & Mumbai Real estate from Propsoch” above the footer.
+- **Footer** – Brand, intro line, links (developers, areas, filters), legal, social icons, and half-blended “Propsoch” watermark.
+
+### Responsive design
+
+- Layouts and typography tuned for mobile and desktop (breakpoints, stacking, spacing).
+- Hide-scrollbar utility for horizontal tab strips (e.g. FAQ, city selector) so they scroll without a visible scrollbar on small screens.
+
+### Performance and assets
+
+- **Images:** `next/image` with CloudFront and placehold.co in `next.config` for optimized loading and correct domains.
+- **Fonts:** Geist, Archivo, Pacifico loaded via Next.js for better performance.
+
+### Accessibility and interaction
+
+- **Navbar (Issue #2):** Icon buttons (Search, Share, Favorites) use `aria-label` and tooltips so purpose is clear without visible text.
+- **Focus and outlines:** Focus rings removed from accordion triggers and secondary controls (FAQ, Insights, Propsoch overview) to avoid distracting outlines while keeping `focus:outline-none` for consistency.
+- **Semantics:** FAQ uses proper tab/panel roles and `aria-expanded` on accordion triggers; sections use clear headings and landmarks.
+
+### Visual and consistency
+
+- **Theme:** Dark mode disabled so the app always uses the light theme and avoids contrast/readability issues from system dark mode (Issue #4).
+- **Contrast:** Primary text uses darker neutrals (e.g. `#292D32`, `#66677E`, `primary-foreground`) for better readability; orange is used for accents and CTAs.
+- **Motion (Issue #5):** Hero headline uses a subtle shimmer; cards and buttons use hover (e.g. scale, opacity) for feedback without heavy animation.
+
+### Tech stack
+
+- **Next.js 16** (App Router), **TypeScript**, **Tailwind CSS v4**
+- Sections are componentized with shared data files for content (e.g. `data/faq-data.ts`, `data/footer-data.ts`, `data/guides-data.ts`).
+
+---
+
+## Propsoch Landing Page Analysis
+
+**[Full analysis document](https://docs.google.com/document/d/1WlflT17DXphQcRQ-Gt2IGxAjZtgHyMTPuv8VTIn2xrU/edit?usp=sharing)** (Google Doc)
+
+**Lighthouse scores (original site):** Performance 99, Accessibility 77, Best Practices 54, SEO 100.
+
+**Five UX/UI issues addressed:**
+
+1. **Unclear city selection in hero** – Added explanatory microcopy and clearer hierarchy for the city selector.
+2. **Navbar icons lack clear meaning** – Added `aria-label` and tooltips for Search, Saved, Share.
+3. **Conflicting CTAs in community section** – Hometrust Collective has supporting copy and clearer city CTAs.
+4. **Poor text contrast** – Light theme only; darker text colors for body and headings.
+5. **Lack of meaningful animation** – Shimmer on hero headline; hover states on cards and buttons.
+
+---
 
 ## Getting Started
 
